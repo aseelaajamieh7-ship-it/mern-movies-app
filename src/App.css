@@ -1,118 +1,106 @@
-/* 🌐 General */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #f5f6fa;
+  background: #f5f7fb;
+  color: #1e293b;
 }
 
-/* 🧱 Container */
-div {
+.container {
+  max-width: 700px;
+  margin: auto;
   padding: 20px;
-}
-
-/* 🏷️ Header */
-h1 {
   text-align: center;
-  color: #2c3e50;
 }
 
-/* 🔗 Navbar */
-nav {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
+h2 {
   margin-bottom: 20px;
 }
 
-nav a {
-  text-decoration: none;
-  color: white;
-  background: #3498db;
-  padding: 8px 15px;
-  border-radius: 5px;
-  transition: 0.3s;
+.controls {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 15px;
 }
 
-nav a:hover {
-  background: #2980b9;
+.form {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 15px;
 }
 
-/* 🔍 Inputs + Select */
 input, select {
   padding: 8px;
-  margin: 5px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-/* ➕ Add section */
-div input[type="text"],
-div input[type="number"] {
-  margin-right: 5px;
-}
-
-/* 🔘 Buttons */
-button {
-  padding: 6px 10px;
+  border-radius: 6px;
   border: none;
-  background-color: #2ecc71;
+}
+
+button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  background: #3b82f6;
   color: white;
-  border-radius: 5px;
   cursor: pointer;
-  transition: 0.3s;
 }
 
 button:hover {
-  background-color: #27ae60;
+  background: #2563eb;
 }
 
-/* ❌ Delete button */
-li button {
-  background-color: #e74c3c;
-}
 
-li button:hover {
-  background-color: #c0392b;
-}
-
-/* 📃 List */
-ul {
+.list {
   list-style: none;
   padding: 0;
 }
 
-/* 🎬 Movie Card */
-li {
-  padding: 12px;
-  margin: 10px 0;
+.card {
   background: white;
-  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.card.fav {
+  border: 2px solid gold;
+}
+
+.info {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  gap: 10px;
 }
 
-/* 📱 Responsive */
-@media (max-width: 600px) {
-  nav {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  input, select, button {
-    width: 100%;
-    margin: 5px 0;
-  }
-
-  li {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 5px;
-  }
-
-  .container {
-  max-width: 800px;
-  margin: auto;
+.title {
+  font-weight: bold;
 }
+
+.rating {
+  color: #38bdf8;
+}
+
+.actions button {
+  margin-left: 5px;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+.nav-btn {
+  background: #1e3a8a;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.nav-btn:hover {
+  background: #1d4ed8;
 }

@@ -1,12 +1,13 @@
-function Login() {
+function Login({ setIsLoggedIn }) {
   return (
     <div>
-      <h2>Login Page</h2>
-      <form>
-        <input type="email" placeholder="Email" /><br />
-        <input type="password" placeholder="Password" /><br />
-        <button type="button">Login</button>
-      </form>
+      <h2>Login</h2>
+      <input placeholder="Email" />
+      <input placeholder="Password" type="password" />
+
+      <button onClick={() => setIsLoggedIn(true)}>
+        Login
+      </button>
     </div>
   );
 }

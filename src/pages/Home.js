@@ -1,10 +1,4 @@
 function Home() {
-  return (
-    <div>
-      <h2>Home Page 🏠</h2>
-      <p>Welcome to My Movies App.</p>
-    </div>
-  );
+  return <h2>Welcome to Movies App 🎬</h2>;
 }
-
 export default Home;
