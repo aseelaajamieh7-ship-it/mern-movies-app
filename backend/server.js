@@ -28,7 +28,7 @@ console.log(process.env.MONGO_URI);
 // CORS
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "https://mern-movies-app2.onrender.com",
     credentials: true,
   })
 );
@@ -53,6 +53,10 @@ app.use(
 
     cookie: {
       maxAge: 1000 * 60 * 60 * 24,
+
+      secure: true,
+
+      sameSite: "none",
     },
   })
 );
