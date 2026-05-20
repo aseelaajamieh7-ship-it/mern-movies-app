@@ -9,38 +9,46 @@ function Register() {
   const [password, setPassword] = useState("");
 
 
-  const handleRegister = async () => {
+  const register = async () => {
 
-    try {
+  try {
 
-      const response = await fetch(
-  "https://mern-movies-app-o1fz.onrender.com/api/auth/register",
-        {
-          method: "POST",
+    console.log("REGISTER START");
 
-          headers: {
-            "Content-Type": "application/json",
-          },
+    const response = await fetch(
+      "https://mern-movies-app-o1fz.onrender.com/api/auth/register",
+      {
+        method: "POST",
 
-          body: JSON.stringify({
-            name,
-            email,
-            password,
-          }),
+        headers: {
+          "Content-Type": "application/json",
+        },
 
-          credentials: "include",
-        }
-      );
+        credentials: "include",
 
-      const data = await response.json();
+        body: JSON.stringify({
+          name,
+          email,
+          password,
+        }),
+      }
+    );
 
-      alert(data.message);
+    console.log("RESPONSE:", response);
 
-    } catch (error) {
+    const data = await response.json();
 
-      console.log(error);
-    }
-  };
+    console.log("DATA:", data);
+
+    alert(data.message);
+
+  } catch (error) {
+
+    console.log("REGISTER ERROR:", error);
+
+    alert("Register Failed");
+  }
+};
 
 
   return (
