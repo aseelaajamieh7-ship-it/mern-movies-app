@@ -17,7 +17,7 @@ function Movies() {
     try {
 
       const response = await fetch(
-  "https://mern-movies-app-o1fz.onrender.com/api/movies",
+        "https://mern-movies-app-o1fz.onrender.com/api/movies",
         {
           credentials: "include",
         }
@@ -41,8 +41,9 @@ function Movies() {
   const addMovie = async () => {
 
     try {
-const response = await fetch(
-  "https://mern-movies-app-o1fz.onrender.com/api/movies",
+
+      const response = await fetch(
+        "https://mern-movies-app-o1fz.onrender.com/api/movies",
         {
           method: "POST",
 
@@ -81,8 +82,8 @@ const response = await fetch(
 
     try {
 
-    const response = await fetch(
-  `https://mern-movies-app-o1fz.onrender.com/api/movies/${id}`,
+      const response = await fetch(
+        `https://mern-movies-app-o1fz.onrender.com/api/movies/${id}`,
         {
           method: "DELETE",
 
@@ -119,8 +120,8 @@ const response = await fetch(
 
     try {
 
-    const response = await fetch(
-  `https://mern-movies-app-o1fz.onrender.com/api/movies/${editingId}`,
+      const response = await fetch(
+        `https://mern-movies-app-o1fz.onrender.com/api/movies/${editingId}`,
         {
           method: "PUT",
 
@@ -156,6 +157,24 @@ const response = await fetch(
   };
 
 
+  // LOGOUT
+  const logout = async () => {
+
+    await fetch(
+      "https://mern-movies-app-o1fz.onrender.com/api/auth/logout",
+      {
+        method: "GET",
+
+        credentials: "include",
+      }
+    );
+
+    alert("Logged out");
+
+    window.location.href = "/login";
+  };
+
+
   useEffect(() => {
 
     getMovies();
@@ -184,6 +203,21 @@ const response = await fetch(
           boxShadow: "0px 0px 10px rgba(0,0,0,0.1)",
         }}
       >
+
+        <button
+          onClick={logout}
+          style={{
+            padding: "10px 15px",
+            backgroundColor: "#333",
+            color: "white",
+            border: "none",
+            borderRadius: "6px",
+            cursor: "pointer",
+            marginBottom: "20px",
+          }}
+        >
+          Logout
+        </button>
 
         <h1
           style={{
