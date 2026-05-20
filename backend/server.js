@@ -54,13 +54,13 @@ app.use(
     cookie: {
       maxAge: 1000 * 60 * 60 * 24,
 
-      secure: false,
+      secure: true,
 
       sameSite: "none",
     },
   })
 );
-
+app.set("trust proxy", 1);
 
 // ROUTES
 app.use("/api/auth", authRoutes);
