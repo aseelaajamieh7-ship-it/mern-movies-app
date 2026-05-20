@@ -76,10 +76,7 @@ app.get("/", (req, res) => {
 
 
 // DATABASE CONNECTION
-mongoose.connect(process.env.MONGO_URI, {
-  serverSelectionTimeoutMS: 5000,
-  family: 4,
-})
+mongoose.connect(process.env.MONGO_URI)
 .then(() => {
   console.log("MongoDB Connected");
 })
