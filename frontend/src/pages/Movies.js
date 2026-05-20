@@ -8,8 +8,6 @@ function Movies() {
 
   const [movies, setMovies] = useState([]);
 
-  const [editingId, setEditingId] = useState(null);
-
 
   // GET MOVIES
   const getMovies = async () => {
@@ -104,74 +102,28 @@ function Movies() {
   };
 
 
-  // START EDIT
-  const startEdit = (movie) => {
-
-    setEditingId(movie._id);
-
-    setTitle(movie.title);
-
-    setDescription(movie.description);
-  };
-
-
-  // UPDATE MOVIE
-  const updateMovie = async () => {
+  // LOGOUT
+  const logout = async () => {
 
     try {
 
-      const response = await fetch(
-        `https://mern-movies-app-o1fz.onrender.com/api/movies/${editingId}`,
+      await fetch(
+        "https://mern-movies-app-o1fz.onrender.com/api/auth/logout",
         {
-          method: "PUT",
-
-          headers: {
-            "Content-Type": "application/json",
-          },
+          method: "GET",
 
           credentials: "include",
-
-          body: JSON.stringify({
-            title,
-            description,
-          }),
         }
       );
 
-      const data = await response.json();
+      alert("Logged out");
 
-      alert(data.message);
-
-      setEditingId(null);
-
-      setTitle("");
-
-      setDescription("");
-
-      getMovies();
+      window.location.href = "/login";
 
     } catch (error) {
 
       console.log(error);
     }
-  };
-
-
-  // LOGOUT
-  const logout = async () => {
-
-    await fetch(
-      "https://mern-movies-app-o1fz.onrender.com/api/auth/logout",
-      {
-        method: "GET",
-
-        credentials: "include",
-      }
-    );
-
-    alert("Logged out");
-
-    window.location.href = "/login";
   };
 
 
@@ -256,45 +208,21 @@ function Movies() {
           }}
         />
 
-        {
-          editingId ? (
-
-            <button
-              onClick={updateMovie}
-              style={{
-                width: "100%",
-                padding: "12px",
-                backgroundColor: "#ff9800",
-                color: "white",
-                border: "none",
-                borderRadius: "8px",
-                cursor: "pointer",
-                fontSize: "16px",
-              }}
-            >
-              Update Movie
-            </button>
-
-          ) : (
-
-            <button
-              onClick={addMovie}
-              style={{
-                width: "100%",
-                padding: "12px",
-                backgroundColor: "#4caf50",
-                color: "white",
-                border: "none",
-                borderRadius: "8px",
-                cursor: "pointer",
-                fontSize: "16px",
-              }}
-            >
-              Add Movie
-            </button>
-
-          )
-        }
+        <button
+          onClick={addMovie}
+          style={{
+            width: "100%",
+            padding: "12px",
+            backgroundColor: "#4caf50",
+            color: "white",
+            border: "none",
+            borderRadius: "8px",
+            cursor: "pointer",
+            fontSize: "16px",
+          }}
+        >
+          Add Movie
+        </button>
 
         <hr
           style={{
@@ -333,20 +261,6 @@ function Movies() {
                 <p>{movie.description}</p>
 
                 <button
-                  onClick={() => startEdit(movie)}
-                  style={{
-                    padding: "10px 15px",
-                    backgroundColor: "#2196f3",
-                    color: "white",
-                    border: "none",
-                    borderRadius: "6px",
-                    cursor: "pointer",
-                  }}
-                >
-                  Edit
-                </button>
-
-                <button
                   onClick={() => deleteMovie(movie._id)}
                   style={{
                     padding: "10px 15px",
@@ -355,7 +269,6 @@ function Movies() {
                     border: "none",
                     borderRadius: "6px",
                     cursor: "pointer",
-                    marginLeft: "10px",
                   }}
                 >
                   Delete
