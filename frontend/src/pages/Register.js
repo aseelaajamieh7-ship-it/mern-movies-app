@@ -11,44 +11,44 @@ function Register() {
 
   const register = async () => {
 
-  try {
+    try {
 
-    console.log("REGISTER START");
+      console.log("REGISTER START");
 
-    const response = await fetch(
-      "https://mern-movies-app-o1fz.onrender.com/api/auth/register",
-      {
-        method: "POST",
+      const response = await fetch(
+        "https://mern-movies-app-o1fz.onrender.com/api/auth/register",
+        {
+          method: "POST",
 
-        headers: {
-          "Content-Type": "application/json",
-        },
+          headers: {
+            "Content-Type": "application/json",
+          },
 
-        credentials: "include",
+          credentials: "include",
 
-        body: JSON.stringify({
-          name,
-          email,
-          password,
-        }),
-      }
-    );
+          body: JSON.stringify({
+            name,
+            email,
+            password,
+          }),
+        }
+      );
 
-    console.log("RESPONSE:", response);
+      console.log("RESPONSE:", response);
 
-    const data = await response.json();
+      const data = await response.json();
 
-    console.log("DATA:", data);
+      console.log("DATA:", data);
 
-    alert(data.message);
+      alert(data.message);
 
-  } catch (error) {
+    } catch (error) {
 
-    console.log("REGISTER ERROR:", error);
+      console.log("REGISTER ERROR:", error);
 
-    alert("Register Failed");
-  }
-};
+      alert("Register Failed");
+    }
+  };
 
 
   return (
@@ -88,7 +88,7 @@ function Register() {
 
       <br /><br />
 
-      <button onClick={handleRegister}>
+      <button onClick={register}>
         Register
       </button>
 
@@ -97,3 +97,4 @@ function Register() {
 }
 
 export default Register;
+//fix
