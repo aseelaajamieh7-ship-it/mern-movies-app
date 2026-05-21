@@ -118,7 +118,7 @@ function Movies() {
 
       alert("Logged out");
 
-      window.location.href = "/login";
+      window.location.href = "/";
 
     } catch (error) {
 
