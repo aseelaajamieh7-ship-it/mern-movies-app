@@ -42,7 +42,7 @@ function Login() {
 
   return (
 
-    <div style=<div
+  <div
   style={{
     display: "flex",
     flexDirection: "column",
