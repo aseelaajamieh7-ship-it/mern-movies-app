@@ -31,10 +31,16 @@ router.post("/register", async (req, res) => {
       password: hashedPassword,
     });
 
-    res.status(201).json({
-      message: "User registered successfully",
-      user,
-    });
+   const userData = {
+  _id: user._id,
+  name: user.name,
+  email: user.email,
+};
+
+res.status(201).json({
+  message: "User registered successfully",
+  user: userData,
+});
 
   } catch (error) {
 
@@ -77,10 +83,16 @@ router.post("/login", async (req, res) => {
 
     req.session.userId = user._id;
 
-    res.json({
-      message: "Login successful",
-      user,
-    });
+   const userData = {
+  _id: user._id,
+  name: user.name,
+  email: user.email,
+};
+
+res.json({
+  message: "Login successful",
+  user: userData,
+});
 
   } catch (error) {
 
