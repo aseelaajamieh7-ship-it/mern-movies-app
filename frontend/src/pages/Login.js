@@ -42,7 +42,15 @@ function Login() {
 
   return (
 
-    <div style={{ padding: "40px" }}>
+    <div style=<div
+  style={{
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    minHeight: "100vh",
+  }}
+>
 
       <h1>Login</h1>
 
