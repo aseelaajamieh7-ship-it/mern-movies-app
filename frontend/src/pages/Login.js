@@ -44,11 +44,8 @@ function Login() {
 
   <div
   style={{
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    minHeight: "100vh",
+        width: "400px",
+        margin: "50px auto",
   }}
 >
 
