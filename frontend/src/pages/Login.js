@@ -44,9 +44,11 @@ function Login() {
 
   <div
   style={{
-        width: "400px",
-        margin: "50px auto",
-  }}
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  paddingTop: "80px",
+}}
 >
 
       <h1>Login</h1>
